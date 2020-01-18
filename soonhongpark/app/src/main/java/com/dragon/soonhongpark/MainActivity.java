@@ -38,4 +38,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    // Event Activity
+    public void onButtonClick4(View v){
+        Intent intent = new Intent(getApplicationContext(), EventActivity.class);
+        startActivity(intent);
+
+    }
+
 }
