@@ -1,0 +1,2 @@
+include ':lookbackon'
+rootProject.name='one-day-diary'
