@@ -1,7 +1,6 @@
 package com.adapter;
 
 import android.net.Uri;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.data.Note;
 import com.service.OnNoteItemClickListener;
+import com.slow.diary.AppConstants;
 import com.slow.diary.R;
 
 import java.util.ArrayList;
@@ -102,7 +102,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
             layout1 = itemView.findViewById(R.id.layout1);
             layout2 = itemView.findViewById(R.id.layout2);
 
-            moodImageView = itemView.findViewById(R.id.moodImageView2);
+            moodImageView = itemView.findViewById(R.id.moodImageView);
             moodImageView2 = itemView.findViewById(R.id.moodImageView2);
 
             pictureExistsImageView = itemView.findViewById(R.id.pictureExistsImageView);
@@ -142,7 +142,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
 
             // set picture exists
             String picturePath = item.getPicture();
-            Log.d("NoteAdapter", "picturePath -> " + picturePath);
+            AppConstants.println("picturePath -> " + picturePath);
 
             if (picturePath != null && !picturePath.equals("")) {
                 //AppConstants.println("DEBUG 1");
@@ -252,7 +252,3 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
     }
 
 }
-
-
-
-

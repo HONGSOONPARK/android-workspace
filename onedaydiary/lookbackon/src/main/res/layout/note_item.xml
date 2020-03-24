@@ -17,17 +17,15 @@
         android:id="@+id/layout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:visibility="visible"
-        >
+        android:orientation="horizontal">
 
         <ImageView
-            android:layout_height="54dp"
+            android:id="@+id/moodImageView"
             android:layout_width="54dp"
+            android:layout_height="54dp"
             android:layout_gravity="center_vertical"
             android:padding="5dp"
-            app:srcCompat="@drawable/smile5_48"
-            />
+            app:srcCompat="@drawable/smile5_48" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -40,8 +38,8 @@
                 android:id="@+id/contentsTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="내용"
-                android:textSize="24sp" />
+                android:text="Contents"
+                android:textSize="20sp" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -53,7 +51,7 @@
                     android:layout_width="32dp"
                     android:layout_height="32dp"
                     android:layout_alignParentLeft="true"
-                    android:src="@drawable/weather_icon_1" />
+                    android:src="@drawable/weather_icon_1"/>
 
                 <ImageView
                     android:id="@+id/pictureExistsImageView"
@@ -61,7 +59,8 @@
                     android:layout_height="32dp"
                     android:layout_marginLeft="10dp"
                     android:layout_toRightOf="@+id/weatherImageView"
-                    android:src="@drawable/picture_128" />
+                    android:src="@drawable/picture_128"
+                    android:visibility="gone"/>
 
                 <TextView
                     android:id="@+id/locationTextView"
@@ -69,8 +68,8 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
-                    android:text="용산구 효창동"
-                    android:textSize="16sp" />
+                    android:text="OOO OOO"
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/dateTextView"
@@ -78,9 +77,9 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:text="02월 23일"
-                    android:textColor="#FF0000FF"
-                    android:textSize="16sp" />
+                    android:text="02-10"
+                    android:textColor="#008577"
+                    android:textSize="15sp" />
 
             </RelativeLayout>
 
@@ -99,8 +98,8 @@
             android:id="@+id/pictureImageView"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:layout_gravity="center_vertical"
             android:layout_margin="10dp"
+            android:layout_gravity="center_vertical"
             android:padding="5dp"
             android:src="@drawable/noimagefound" />
 
@@ -117,8 +116,8 @@
                 android:id="@+id/contentsTextView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="내용"
-                android:textSize="24sp" />
+                android:text="Contents"
+                android:textSize="20sp" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -137,9 +136,9 @@
                     android:id="@+id/weatherImageView2"
                     android:layout_width="32dp"
                     android:layout_height="32dp"
-                    android:layout_marginLeft="10dp"
                     android:layout_toRightOf="@+id/moodImageView2"
-                    android:src="@drawable/weather_icon_1" />
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/weather_icon_1"/>
 
                 <TextView
                     android:id="@+id/locationTextView2"
@@ -147,8 +146,8 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
-                    android:text="용산구 효창동"
-                    android:textSize="16sp" />
+                    android:text="OOO OOO"
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/dateTextView2"
@@ -156,9 +155,9 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:text="02월 23일"
+                    android:text="02-10"
                     android:textColor="#FF0000FF"
-                    android:textSize="16sp" />
+                    android:textSize="15sp" />
 
             </RelativeLayout>
 

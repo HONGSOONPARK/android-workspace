@@ -1,9 +1,9 @@
 package com.data;
 
 public class Note {
-
-    int _id;
+    public int _id;
     String weather;
+    String address;
     String locationX;
     String locationY;
     String contents;
@@ -11,10 +11,10 @@ public class Note {
     String picture;
     String createDateStr;
 
-
-    public Note(int _id, String weather, String locationX, String locationY, String contents, String mood, String picture, String createDateStr) {
+    public Note(int _id, String weather, String address, String locationX, String locationY, String contents, String mood, String picture, String createDateStr) {
         this._id = _id;
         this.weather = weather;
+        this.address = address;
         this.locationX = locationX;
         this.locationY = locationY;
         this.contents = contents;
@@ -22,7 +22,6 @@ public class Note {
         this.picture = picture;
         this.createDateStr = createDateStr;
     }
-
 
     public int get_id() {
         return _id;
@@ -38,6 +37,14 @@ public class Note {
 
     public void setWeather(String weather) {
         this.weather = weather;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getLocationX() {
