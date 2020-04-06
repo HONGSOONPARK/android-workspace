@@ -11,12 +11,10 @@ public class MainPresenter {
     public void attachView(iView view){
         this.view = view;
         this.taskRepository = TaskRepository.getInstance();
-
-
     }
 
     public void loadTask(){
-        Task task = TaskRepository.getInstance().getTask(1);
+        Task task = taskRepository.getTask(1);
         String titleToShow = task.getTitle() +"입니다 mvp";
         ///...
         view.setTaskTitle(titleToShow);
