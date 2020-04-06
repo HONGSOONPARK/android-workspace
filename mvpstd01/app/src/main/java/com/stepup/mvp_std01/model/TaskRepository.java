@@ -1,5 +1,7 @@
 package com.stepup.mvp_std01.model;
 
+import com.stepup.mvp_std01.model.domain.Task;
+
 import java.util.HashMap;
 
 public class TaskRepository {

@@ -1,4 +1,4 @@
-package com.stepup.mvp_std01;
+package com.stepup.mvp_std01.main;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,23 +10,31 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.stepup.mvp_std01.model.Task;
-import com.stepup.mvp_std01.model.TaskRepository;
+import com.stepup.mvp_std01.R;
 
-public class MainFragment extends Fragment {
+public class MainFragment extends Fragment implements iView {
+
+
+    private TextView testView_title;
+
+    private MainPresenter presenter;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment, container, false);
+        testView_title = rootView.findViewById(R.id.textView_title);
 
-        TextView testview_title = rootView.findViewById(R.id.textView_title);
+        presenter = new MainPresenter();
+        presenter.attachView(this);
+        presenter.loadTask();
 
-        Task task = TaskRepository.getInstance().getTask(1);
-        String titleToShow = task.getTitle() + "입니다 ";
 
-        testview_title.setText(titleToShow);
 
         return rootView;
+    }
+
+    public void setTaskTitle(String titleToShow){
+        testView_title.setText(titleToShow);
     }
 }

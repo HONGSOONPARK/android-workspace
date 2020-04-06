@@ -1,4 +1,4 @@
-package com.stepup.mvp_std01.model;
+package com.stepup.mvp_std01.model.domain;
 
 public class Task {
 

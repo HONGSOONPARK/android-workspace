@@ -1,9 +1,10 @@
-package com.stepup.mvp_std01;
+package com.stepup.mvp_std01.main;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
+
+import com.stepup.mvp_std01.R;
 
 public class MainActivity extends AppCompatActivity {
 
