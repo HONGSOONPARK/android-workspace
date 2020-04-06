@@ -1,10 +1,11 @@
 package com.stepup.mvp_std01.model;
 
+import com.stepup.mvp_std01.main.iTaskRepository;
 import com.stepup.mvp_std01.model.domain.Task;
 
 import java.util.HashMap;
 
-public class TaskRepository {
+public class TaskRepository implements iTaskRepository {
 
     private static TaskRepository instance;
     private HashMap<Integer, Task> tasks = new HashMap<>();
@@ -25,6 +26,7 @@ public class TaskRepository {
 
     }
 
+    @Override
     public Task getTask(int id){
         Task task = new Task();
         task.setTitle("tititititile");

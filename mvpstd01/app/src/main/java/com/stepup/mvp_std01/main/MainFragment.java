@@ -29,11 +29,10 @@ public class MainFragment extends Fragment implements iView {
         presenter.attachView(this);
         presenter.loadTask();
 
-
-
         return rootView;
     }
 
+    @Override
     public void setTaskTitle(String titleToShow){
         testView_title.setText(titleToShow);
     }
