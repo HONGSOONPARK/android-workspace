@@ -1,6 +1,7 @@
 package com.emoney.kotlinstd2
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.view.PagerAdapter
 import android.support.v4.view.ViewPager
@@ -11,61 +12,52 @@ import android.view.ViewParent
 
 
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.viewpager.*
+import kotlin.math.log
+import kotlinx.android.synthetic.main.activity_main.textView as textView1
 
 
 class MainActivity : AppCompatActivity() {
     var view_list = ArrayList<View>()
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        view_list.add(layoutInflater.inflate(R.layout.view1, null))
-        view_list.add(layoutInflater.inflate(R.layout.view2, null))
-        view_list.add(layoutInflater.inflate(R.layout.view3, null))
+        var listener1 = BtnListner()
 
-        pager.adapter = CustomAdapter()
+        button1.setOnClickListener(listener1);
+
+        button2.setOnClickListener(btnListener);
 
 
-                pager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener{
+    }
 
-                    override fun onPageScrollStateChanged(p0: Int) {
+    inner class BtnListner:View.OnClickListener{
+        override fun onClick(v: View?) {
 
-                    }
+        }
+    }
 
-                    override fun onPageScrolled(p0: Int, p1: Float, p2: Int) {
-                        textView.text = "${p0} 번째 뷰가 나타났습니다"
+    var btnListener = View.OnClickListener { view ->
 
+        when(view.id){
+            R.id.button1 -> {
+                textView.text = "첫번재 버튼"
             }
 
-            override fun onPageSelected(p0: Int) {
-
+            R.id.button2 -> {
+                textView.text = "button2 버튼"
             }
-        })
 
-
+        }
 
 
     }
 
 
-    inner class CustomAdapter : PagerAdapter() {
-        override fun getCount(): Int {
-            return view_list.size
-        }
 
-        override fun isViewFromObject(view: View, `object`: Any): Boolean {
-            return view == `object`
-        }
 
-        override fun instantiateItem(container: ViewGroup, position: Int): Any {
 
-            pager.addView(view_list[position])
-
-            return view_list[position]
-        }
-
-        override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
-            pager.removeView(`object` as View)
-        }
-    }
 }
