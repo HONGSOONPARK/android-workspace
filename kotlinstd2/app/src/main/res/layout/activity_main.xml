@@ -13,29 +13,33 @@
         android:layout_height="wrap_content"
         android:text="TextView" />
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="View Pager" />
 
-    <Button
-        android:id="@+id/button2"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="example2" />
+        android:orientation="horizontal"
+        >
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="View Pager" />
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="example3" />
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="example2" />
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/button4"
+
+    <ListView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="example4" />
+        android:layout_height="match_parent"
+        android:id="@+id/main_listView"
+        />
 
 
 </LinearLayout>
