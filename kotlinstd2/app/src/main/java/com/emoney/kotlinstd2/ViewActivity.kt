@@ -4,14 +4,15 @@ package com.emoney.kotlinstd2
 import android.os.Bundle
 import android.support.v4.view.PagerAdapter
 import android.support.v4.view.ViewPager
-import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.view.ViewGroup
+import kotlinx.android.synthetic.main.base_top.*
 import kotlinx.android.synthetic.main.viewpager.*
 
 
-class ViewActivity : AppCompatActivity() {
+class ViewActivity : BaseActivity() {
     var view_list = ArrayList<View>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -26,13 +27,12 @@ class ViewActivity : AppCompatActivity() {
                     }
                     override fun onPageScrolled(p0: Int, p1: Float, p2: Int) {
                         textView.text = "${p0} 번째 뷰가 나타났습니다"
-
             }
             override fun onPageSelected(p0: Int) {
-
             }
         })
     }
+
     inner class CustomAdapter : PagerAdapter() {
         override fun getCount(): Int {
             return view_list.size
@@ -52,5 +52,9 @@ class ViewActivity : AppCompatActivity() {
         override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
             pager.removeView(`object` as View)
         }
+    }
+
+    override fun useToolbar(): Boolean {
+        return true;
     }
 }
