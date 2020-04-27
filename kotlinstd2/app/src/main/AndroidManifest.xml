@@ -20,8 +20,14 @@
 
         <activity
             android:name=".ViewActivity"
-            android:theme="@style/AppTheme"
-        />
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".TwoLineListActivity"
+            android:theme="@style/AppTheme" />
+
+        <activity
+            android:name=".CustomListActivity"
+            android:theme="@style/AppTheme" />
     </application>
 
 

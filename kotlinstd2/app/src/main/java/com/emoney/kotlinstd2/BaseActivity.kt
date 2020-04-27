@@ -6,13 +6,34 @@ import android.support.v7.widget.Toolbar
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.LinearLayout
+import android.widget.TextView
+import kotlinx.android.synthetic.main.base_top.*
 
 open class BaseActivity : AppCompatActivity() {
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.base_top);
 
+
+    }
+
+    override fun onPause() {
+        super.onPause()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+    }
+
+    override fun onStop() {
+        super.onStop()
     }
 
     override fun setContentView(layoutResID: Int) {
@@ -25,12 +46,16 @@ open class BaseActivity : AppCompatActivity() {
         super.setContentView(fullView);
 
         var toolbar:Toolbar = findViewById (R.id.toolbar);
+
+        var tv: TextView = findViewById (R.id.textView);
+
         //툴바 사용여부 결정(기본적으로 사용)
         if (useToolbar()) {
             setSupportActionBar(toolbar);
-            setTitle("툴바예제");
+            //title = "툴바예제";
+            tv.text = javaClass.simpleName
         } else {
-            toolbar.setVisibility(View.GONE);
+            toolbar.visibility = View.GONE;
         }
     }
 
@@ -38,6 +63,8 @@ open class BaseActivity : AppCompatActivity() {
     protected open fun useToolbar() : Boolean{
         return true;
     }
+
+
 
 
 }
