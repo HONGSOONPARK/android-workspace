@@ -7,6 +7,7 @@ import android.support.v4.view.ViewPager
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.base_top.*
+import kotlinx.android.synthetic.main.view1.*
 import kotlinx.android.synthetic.main.viewpager.*
 
 
@@ -18,19 +19,19 @@ class ViewActivity : BaseActivity() {
 
         setContentView(R.layout.viewpager)
 
+
         view_list.add(layoutInflater.inflate(R.layout.view1, null))
         view_list.add(layoutInflater.inflate(R.layout.view2, null))
         view_list.add(layoutInflater.inflate(R.layout.view3, null))
         pager.adapter = CustomAdapter()
-            pager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener{
-                    override fun onPageScrollStateChanged(p0: Int) {
-                    }
-                    override fun onPageScrolled(p0: Int, p1: Float, p2: Int) {
-                        view_pager_text.text = "${p0} 번째 뷰가 나타났습니다"
+        pager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener{
+            override fun onPageScrollStateChanged(p0: Int) {}
+            override fun onPageScrolled(p0: Int, p1: Float, p2: Int) {
+                view_pager_text.text = "${p0} 번째 뷰가 나타났습니다"
             }
-            override fun onPageSelected(p0: Int) {
-            }
+            override fun onPageSelected(p0: Int) {}
         })
+
     }
 
     inner class CustomAdapter : PagerAdapter() {
