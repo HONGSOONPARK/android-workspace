@@ -2,9 +2,12 @@ package com.emoney.kotlinstd2
 
 import android.os.Bundle
 import android.util.Log
+import android.view.ContextMenu
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import kotlinx.android.synthetic.main.base_top.*
 import kotlinx.android.synthetic.main.customlist.*
 import kotlinx.android.synthetic.main.twolinelist.*
 
@@ -24,11 +27,45 @@ class CustomListActivity : BaseActivity() {
         //var adapter = ArrayAdapter<String>(this, R.layout.customrow, R.id.customrow_text, data)
         var adapter = CustomListAdapter()
         custom_list.adapter = adapter
+//        custom_list.setOnItemClickListener { parent, view, position, id ->
+//
+//            Log.d("홍이홍", "$parent|$view|$position|$id")
+//
+//            Toast.makeText(this, "리스트뷰 메뉴", Toast.LENGTH_SHORT).show()
+//
+//        }
+
+        //custom_list.setOnClickListener(list_listener)
+
+
+        // custom adpter 로 하면 context가 안나옴 흑흑
+        registerForContextMenu(custom_list)
+
+    }
+
+    override fun onCreateContextMenu(menu: ContextMenu?, v: View?, menuInfo: ContextMenu.ContextMenuInfo?) {
+        super.onCreateContextMenu(menu, v, menuInfo)
+        when(v?.id){
+            R.id.custom_list -> {
+                //Toast.makeText(this, "리스트뷰 메뉴", Toast.LENGTH_SHORT).show()
+                menu?.setHeaderTitle("리스트뷰의 메뉴")
+                menuInflater.inflate(R.menu.customlistview_menu, menu)
+            }
+        }
+    }
+
+    override fun onContextItemSelected(item: MenuItem?): Boolean {
+
+        when(item?.itemId){
+        }
+
+
+        return super.onContextItemSelected(item)
     }
 
     inner class CustomListAdapter: BaseAdapter(){
 
-        var listener = BtnListener()
+        private var listener = BtnListener()
 
         override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View? {
 
@@ -86,11 +123,10 @@ class CustomListActivity : BaseActivity() {
                 R.id.customrow_btn2 -> {
                     customText.text = "${position} : 두 번째 버튼 누름"
                 }
-
-
             }
         }
     }
+
 
     override fun onPause() {
         super.onPause()
