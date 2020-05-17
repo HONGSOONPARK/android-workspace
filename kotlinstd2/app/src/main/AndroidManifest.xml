@@ -16,6 +16,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".ThreadHandlerActivity"
+            android:theme="@style/AppTheme"/>
+
+        <activity
+            android:name=".AsyncTaskActivity"
+            android:theme="@style/AppTheme"/>
+
+        <activity
+            android:name=".RunOnUiThreadActivity"
+            android:theme="@style/AppTheme"/>
+
+
+
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
 
 </manifest>
