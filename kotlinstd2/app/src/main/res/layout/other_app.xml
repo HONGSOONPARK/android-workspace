@@ -12,10 +12,28 @@
 
 
     <Button
-        android:id="@+id/other_app"
+        android:id="@+id/other_app1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="other app exec" />
+
+    <Button
+        android:id="@+id/other_app2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="map" />
+
+    <Button
+        android:id="@+id/other_app3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="website" />
+
+    <Button
+        android:id="@+id/other_app4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="tel" />
 
 
 </LinearLayout>

@@ -2,24 +2,24 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/send_object"
+    android:id="@+id/broadCast"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".SendObjectActivity">
+    tools:context=".BroadCastReceiver">
 
 
     <TextView
-        android:id="@+id/send_text"
+        android:id="@+id/broad_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="test" />
 
     <Button
-        android:id="@+id/go_object"
+        android:id="@+id/go_broadcast"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="object_finish" />
+        android:text="broadcast" />
 
 
 </LinearLayout>

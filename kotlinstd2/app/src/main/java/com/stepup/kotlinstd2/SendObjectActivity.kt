@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import kotlinx.android.synthetic.main.second_activity.*
+import kotlinx.android.synthetic.main.send_object.*
 
 
 class SendObjectActivity : BaseActivity() {
@@ -15,11 +16,11 @@ class SendObjectActivity : BaseActivity() {
 
         var t1 = intent.getParcelableExtra<TestClass>("test1")
 
-        object_text.text = "t1.data10 : ${t1.data10}\n"
-        object_text.append("t1.data20 : ${t1.data20}")
+        send_text.text = "t1.data10 : ${t1.data10}\n"
+        send_text.append("t1.data20 : ${t1.data20}")
 
 
-        object_finish.setOnClickListener{
+        go_object.setOnClickListener{
 
             var t2 = TestClass()
             t2.data10 = 200

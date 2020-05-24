@@ -16,9 +16,9 @@ class SecondActivity : BaseActivity() {
         var data1 = intent.getStringExtra("edit1")
         var data2 = intent.getStringExtra("edit2")
 
-        object_text.append("\n$data1|$data2")
+        second_text.append("\n$data1|$data2")
 
-        object_finish.setOnClickListener{
+        go_second.setOnClickListener{
             var it = Intent()
             it.putExtra("edit1",data1)
             it.putExtra("edit2",data2)

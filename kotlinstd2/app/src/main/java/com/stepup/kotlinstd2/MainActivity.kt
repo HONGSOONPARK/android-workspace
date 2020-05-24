@@ -23,7 +23,8 @@ class MainActivity : BaseActivity() {
                 android.Manifest.permission.INTERNET,
                 android.Manifest.permission.CAMERA,
                 android.Manifest.permission.SEND_SMS,
-                android.Manifest.permission.READ_CONTACTS
+                android.Manifest.permission.READ_CONTACTS,
+                android.Manifest.permission.CALL_PHONE
             )
 
         private var data:Array<String> = arrayOf(
@@ -32,7 +33,8 @@ class MainActivity : BaseActivity() {
                 "Run On Ui Thread",
                 "SecondActivity Start",
                 "Send Object",
-                "Other Application"
+                "Other Application",
+                "BroadCast Receiver"
         )
 
         lateinit var currentTime: Date
@@ -122,6 +124,12 @@ class MainActivity : BaseActivity() {
                 it = Intent(this, OtherAppActivity::class.java)
                 startActivity(it)
             }
+
+            "BroadCast Receiver" ->{
+                it = Intent(this, BroadCastReceiver::class.java)
+                startActivity(it)
+            }
+
 
 
 

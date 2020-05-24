@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="com.emoney.kotlinstd1" />
+                <action android:name="kotlinstd1" />
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -29,6 +29,13 @@
         <activity
             android:name=".CustomListActivity"
             android:theme="@style/AppTheme" />
+
+<!--        <receiver-->
+<!--            android:name=".TestReceiver"-->
+<!--            android:enabled="true"-->
+<!--            android:exported="true"-->
+<!--            ></receiver>-->
+
     </application>
 
 

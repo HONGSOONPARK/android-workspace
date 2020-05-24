@@ -10,13 +10,13 @@
 
 
     <TextView
-        android:id="@+id/object_text"
+        android:id="@+id/second_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="SecondActivity" />
 
     <Button
-        android:id="@+id/object_finish"
+        android:id="@+id/go_second"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="result for activity(finish)" />
