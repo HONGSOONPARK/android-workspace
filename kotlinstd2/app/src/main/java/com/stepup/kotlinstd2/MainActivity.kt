@@ -7,6 +7,7 @@ import android.os.*
 import android.util.Log
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
@@ -16,14 +17,16 @@ class MainActivity : BaseActivity() {
 
 
 
-        private var permissionList = arrayOf(
-            android.Manifest.permission.INTERNET,
-            android.Manifest.permission.CAMERA,
-            android.Manifest.permission.SEND_SMS,
-            android.Manifest.permission.READ_CONTACTS
-        )
+        val SECOND_ACTIVITY = 2
 
-        private var data:Array<String> = arrayOf("Thread, Handler","AyncTask","Run On Ui Thread")
+        private var permissionList = arrayOf(
+                android.Manifest.permission.INTERNET,
+                android.Manifest.permission.CAMERA,
+                android.Manifest.permission.SEND_SMS,
+                android.Manifest.permission.READ_CONTACTS
+            )
+
+        private var data:Array<String> = arrayOf("Thread, Handler","AyncTask","Run On Ui Thread","SecondActivity Start")
 
         lateinit var currentTime: Date
 
@@ -63,10 +66,27 @@ class MainActivity : BaseActivity() {
                 startActivity(it)
             }
 
+            "SecondActivity Start" ->{
+                it = Intent(this, SecondActivity::class.java)
+                startActivityForResult(it, SECOND_ACTIVITY)
+            }
 
         }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        Log.d("onActivityResult", "$requestCode|$resultCode|$data")
+
+        when(requestCode){
+            SECOND_ACTIVITY ->{
+                Toast.makeText(this, "SecondActivity에서 돌아옴 :${resultCode}", Toast.LENGTH_SHORT).show()
+            }
+        }
+
 
     }
+
     private fun checkPermission(){
         if(Build.VERSION.SDK_INT < Build.VERSION_CODES.M){
             return
