@@ -1,23 +1,23 @@
 package com.stepup.kotlinstd2
 
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.*
 import android.util.Log
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.EditText
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
 
 class MainActivity : BaseActivity() {
-
-
-
-
-        val SECOND_ACTIVITY = 2
+        private val SECOND_ACTIVITY = 2
+        private val SEND_OBJECT = 3
 
         private var permissionList = arrayOf(
                 android.Manifest.permission.INTERNET,
@@ -26,7 +26,14 @@ class MainActivity : BaseActivity() {
                 android.Manifest.permission.READ_CONTACTS
             )
 
-        private var data:Array<String> = arrayOf("Thread, Handler","AyncTask","Run On Ui Thread","SecondActivity Start")
+        private var data:Array<String> = arrayOf(
+                "Thread, Handler",
+                "AyncTask",
+                "Run On Ui Thread",
+                "SecondActivity Start",
+                "Send Object",
+                "Other Application"
+        )
 
         lateinit var currentTime: Date
 
@@ -47,7 +54,8 @@ class MainActivity : BaseActivity() {
     private var listListener = AdapterView.OnItemClickListener { parent, view, position, id ->
 
         Log.d("listListener", "$parent|$view|$position|$id")
-        val it: Intent
+        var it: Intent
+        var builder = AlertDialog.Builder(this)
 
         //textView.text = data[position]
         when(data[position]){
@@ -67,9 +75,55 @@ class MainActivity : BaseActivity() {
             }
 
             "SecondActivity Start" ->{
-                it = Intent(this, SecondActivity::class.java)
-                startActivityForResult(it, SECOND_ACTIVITY)
+                builder.setTitle("Intent 테스트")
+                builder.setIcon(R.mipmap.ic_launcher)
+
+                var v1 = layoutInflater.inflate(R.layout.dialog, null)
+
+                builder.setView(v1)
+                builder.setPositiveButton("확인", DialogInterface.OnClickListener { dialog, p1 ->
+
+                    var alert = dialog as AlertDialog
+
+                    var edit1: EditText? = alert.findViewById<EditText>(R.id.editText1)
+                    var edit2: EditText? = alert.findViewById<EditText>(R.id.editText2)
+
+                    when(p1){
+                        DialogInterface.BUTTON_POSITIVE -> {
+                            if("${edit1?.text}"!= null && "${edit2?.text}"!= null){
+                                it = Intent(this, SecondActivity::class.java)
+                                it.putExtra("edit1",(edit1?.text).toString())
+                                it.putExtra("edit2",(edit2?.text).toString())
+
+                                startActivityForResult(it, SECOND_ACTIVITY)
+                            }else{
+                                Toast.makeText(this, "두개 필수로 입력해야함 ", Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                    }
+                  })
+                builder.setNegativeButton("취소", null)
+                builder.show()
             }
+
+            "Send Object" ->{
+
+                var t1 = TestClass()
+                t1.data10 = 100
+                t1.data20 = "문자열1"
+
+                it = Intent(this, SendObjectActivity::class.java)
+                it.putExtra("test1", t1)
+
+                startActivityForResult(it,SEND_OBJECT)
+            }
+
+            "Other Application" ->{
+                it = Intent(this, OtherAppActivity::class.java)
+                startActivity(it)
+            }
+
+
 
         }
     }
@@ -80,7 +134,11 @@ class MainActivity : BaseActivity() {
 
         when(requestCode){
             SECOND_ACTIVITY ->{
-                Toast.makeText(this, "SecondActivity에서 돌아옴 :${resultCode}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "SecondActivity에서 돌아옴 :${resultCode}|${data?.getStringExtra("edit1")}|${data?.getStringExtra("edit2")}", Toast.LENGTH_SHORT).show()
+            }
+            SEND_OBJECT ->{
+                var t2 = data?.getParcelableExtra<TestClass>("test2")
+                Toast.makeText(this, "SecondActivity에서 돌아옴 :${resultCode}|${t2?.data10}|${t2?.data20}", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -100,6 +158,7 @@ class MainActivity : BaseActivity() {
             }
         }
     }
+
 
     override fun onDestroy() {
         super.onDestroy()

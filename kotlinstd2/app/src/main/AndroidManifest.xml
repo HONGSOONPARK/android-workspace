@@ -33,6 +33,16 @@
             android:name=".SecondActivity"
             android:theme="@style/AppTheme"/>
 
+        <activity
+            android:name=".SendObjectActivity"
+            android:theme="@style/AppTheme"/>
+
+        <activity
+            android:name=".OtherAppActivity"
+            android:theme="@style/AppTheme">
+        </activity>
+
+
     </application>
 
     <uses-permission android:name="android.permission.INTERNET"/>
