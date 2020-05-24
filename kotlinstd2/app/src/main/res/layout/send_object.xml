@@ -10,16 +10,16 @@
 
 
     <TextView
-        android:id="@+id/second_text"
+        android:id="@+id/object_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="SecondActivity" />
+        android:text="test" />
 
     <Button
-        android:id="@+id/button_finish"
+        android:id="@+id/object_finish"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="result for activity(finish)" />
+        android:text="object_finish" />
 
 
 </LinearLayout>

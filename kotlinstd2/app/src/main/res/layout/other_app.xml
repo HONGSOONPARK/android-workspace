@@ -2,24 +2,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/secondActivity"
+    android:id="@+id/otherAppActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".SecondActivity">
+    tools:context=".OtherAppActivity">
 
 
-    <TextView
-        android:id="@+id/object_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="SecondActivity" />
+
 
     <Button
-        android:id="@+id/object_finish"
+        android:id="@+id/other_app"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="result for activity(finish)" />
+        android:text="other app exec" />
 
 
 </LinearLayout>
