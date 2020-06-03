@@ -34,7 +34,8 @@ class MainActivity : BaseActivity() {
                 "SecondActivity Start",
                 "Send Object",
                 "Other Application",
-                "BroadCast Receiver"
+                "BroadCast Receiver",
+                "Service"
         )
 
         lateinit var currentTime: Date
@@ -127,6 +128,11 @@ class MainActivity : BaseActivity() {
 
             "BroadCast Receiver" ->{
                 it = Intent(this, BroadCastReceiver::class.java)
+                startActivity(it)
+            }
+
+            "Service" ->{
+                it = Intent(this, ServiceActivity::class.java)
                 startActivity(it)
             }
 
